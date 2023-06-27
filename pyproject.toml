@@ -1,0 +1,54 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "yolov8-api"
+version = "0.1.0"
+description = "YOLOv8 Object Detection API"
+authors = ["Oleksandr Hiliazov <oleksandr.hiliazov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = { extras = ["all"], version = "^0.98.0" }
+ultralytics = "^8.0.121"
+nvidia-cublas-cu11 = { version = "11.10.3.66", platform = 'linux' }
+nvidia-cuda-cupti-cu11 = { version = "11.7.101", platform = 'linux' }
+nvidia-cuda-nvrtc-cu11 = { version = "11.7.99", platform = 'linux' }
+nvidia-cuda-runtime-cu11 = { version = "11.7.99", platform = 'linux' }
+nvidia-cudnn-cu11 = { version = "8.5.0.96", platform = 'linux' }
+nvidia-cufft-cu11 = { version = "10.9.0.58", platform = 'linux' }
+nvidia-curand-cu11 = { version = "10.2.10.91", platform = 'linux' }
+nvidia-cusolver-cu11 = { version = "11.4.0.1", platform = 'linux' }
+nvidia-cusparse-cu11 = { version = "11.7.4.91", platform = 'linux' }
+nvidia-nccl-cu11 = { version = "2.14.3", platform = 'linux' }
+nvidia-nvtx-cu11 = { version = "11.7.91", platform = 'linux' }
+triton = { version = "2.0.0", platform = 'linux' }
+pafy = "^0.5.5"
+python-jose = { extras = ["cryptography"], version = "^3.3.0" }
+passlib = { extras = ["bcrypt"], version = "^1.7.4" }
+sqlalchemy = "^2.0.17"
+alembic = "^1.11.1"
+httpx = "^0.24.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "23.3.0"
+pre-commit = "^3.3.3"
+ruff = "0.0.275"
+mypy = "1.4.1"
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+ignore = ["E501"]
+extend-select = ["I"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.mypy]
+plugins = [
+    "pydantic.mypy",
+]
