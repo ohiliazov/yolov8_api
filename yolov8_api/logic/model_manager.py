@@ -23,7 +23,9 @@ class ModelManager:
         model_path = f"{uuid.uuid4()}{ext}"
 
         insert_data = ModelInsert(
-            **data.dict(),
+            name=data.name,
+            task_type=data.task_type,
+            url=str(data.url),
             filename=str(model_path),
         )
 

@@ -5,11 +5,8 @@ from fastapi import UploadFile
 from jose import jwt
 from passlib.context import CryptContext
 from pydantic import HttpUrl
-from youtube_dl import YoutubeDL
-from youtube_dl.utils import YoutubeDLError
 
 from .config import env
-from .exceptions import InvalidVideoSource
 from .schemas import TokenData
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -40,14 +37,6 @@ def parse_access_token(token: str) -> TokenData:
 
 def get_filename_from_url(url: HttpUrl) -> str:
     return Path(url.path or "").name
-
-
-def validate_youtube_video_source(url: str):
-    try:
-        with YoutubeDL({"format": "bestvideo/best"}) as dl:
-            dl.extract_info(url, download=False)
-    except YoutubeDLError as err:
-        raise InvalidVideoSource(str(err))
 
 
 async def download_image(file: UploadFile, path: Path):

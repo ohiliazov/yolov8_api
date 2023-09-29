@@ -1,11 +1,3 @@
-class InvalidVideoSource(Exception):
-    pass
-
-
-class VideoSourceAlreadyExists(Exception):
-    pass
-
-
 class ModelSourceAlreadyExists(Exception):
     pass
 

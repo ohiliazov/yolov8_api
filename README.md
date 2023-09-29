@@ -1,10 +1,35 @@
+## Model management
+```mermaid
+sequenceDiagram
+
+    actor User;
+    participant API;
+    participant URL;
+    User ->> API : creates new model
+    API ->> API : marks model as VALIDATING
+    API -->> User : 202 ACCEPTED
+    API ->> URL : requests file download
+    URL -->> API : 200 OK
+    API ->> Storage : stores model
+    API ->> API : validates and marks as VALID
+```
+## Project management
+```mermaid
+sequenceDiagram
+    actor User;
+    participant API;
+
+    User ->> API : creates new project
+    API ->> Database : checks if model exists and valid
+    API -->> User : 201 CREATED
+```
+
 ## ER-модель проєкту
 
 ```mermaid
 ---
 title: OBJECT DETECTOR
 ---
-%%{init: {'theme': 'neutral'}}%%
 erDiagram
     USER {
         INTEGER id PK

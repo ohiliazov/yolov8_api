@@ -11,26 +11,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = { extras = ["all"], version = "^0.98.0" }
+fastapi = { extras = ["all"], version = "^0.103.0" }
 ultralytics = "^8.0.121"
-nvidia-cublas-cu11 = { version = "11.10.3.66", platform = 'linux' }
-nvidia-cuda-cupti-cu11 = { version = "11.7.101", platform = 'linux' }
-nvidia-cuda-nvrtc-cu11 = { version = "11.7.99", platform = 'linux' }
-nvidia-cuda-runtime-cu11 = { version = "11.7.99", platform = 'linux' }
-nvidia-cudnn-cu11 = { version = "8.5.0.96", platform = 'linux' }
-nvidia-cufft-cu11 = { version = "10.9.0.58", platform = 'linux' }
-nvidia-curand-cu11 = { version = "10.2.10.91", platform = 'linux' }
-nvidia-cusolver-cu11 = { version = "11.4.0.1", platform = 'linux' }
-nvidia-cusparse-cu11 = { version = "11.7.4.91", platform = 'linux' }
-nvidia-nccl-cu11 = { version = "2.14.3", platform = 'linux' }
-nvidia-nvtx-cu11 = { version = "11.7.91", platform = 'linux' }
-triton = { version = "2.0.0", platform = 'linux' }
 pafy = "^0.5.5"
 python-jose = { extras = ["cryptography"], version = "^3.3.0" }
 passlib = { extras = ["bcrypt"], version = "^1.7.4" }
 sqlalchemy = "^2.0.17"
 alembic = "^1.11.1"
-httpx = "^0.24.1"
+httpx = "^0.25.0"
+loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "23.3.0"
@@ -42,6 +31,7 @@ mypy = "1.4.1"
 line-length = 88
 
 [tool.ruff]
+line-length = 88
 ignore = ["E501"]
 extend-select = ["I"]
 

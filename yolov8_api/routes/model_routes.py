@@ -30,11 +30,6 @@ def list_user_models(manager: ModelManagerDep):
     return manager.list_models()
 
 
-@router.delete("/models", response_model=list[ModelRead])
-def delete_user_models(manager: ModelManagerDep):
-    return manager.delete_models()
-
-
 @router.get("/models/{model_id}", response_model=ModelRead)
 def get_model(manager: ModelManagerDep, model_id: int):
     try:

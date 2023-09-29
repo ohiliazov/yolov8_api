@@ -26,11 +26,6 @@ def list_user_projects(manager: ProjectManagerDep):
     return manager.list_projects()
 
 
-@router.delete("/projects", response_model=list[ProjectRead])
-def delete_user_projects(manager: ProjectManagerDep):
-    return manager.delete_projects()
-
-
 @router.get("/projects/{project_id}", response_model=ProjectRead)
 def get_project(manager: ProjectManagerDep, project_id: int):
     try:
